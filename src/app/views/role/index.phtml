@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roles</title>
+</head>
+<!-- main section for Orders  -->
+
+<body>
+    <?php
+    echo $this->tag->linkTo(['product', 'Add products Here!', 'class' => 'm-3 btn btn-primary']);
+    echo $this->tag->linkTo(['order', 'Place Order Here!', 'class' => 'm-3 btn btn-primary']);
+    echo $this->tag->linkTo(['setting', 'Apply Settings Here!', 'class' => 'm-3 btn btn-primary']);
+    echo  $this->tag->linkTo(['order/show', 'View Orders', 'class' => 'btn btn-primary']);
+    echo  $this->tag->linkTo(['product/view', 'View Products', 'class' => 'm-3 btn btn-primary']);
+    echo  $this->tag->linkTo(['index', 'Homepage', 'class' => 'm-3 btn btn-primary']);
+    ?>
+    <h2>
+        Add Roles
+    </h2>
+    <h2>Roles using this form</h2>
+    <?php echo $this->tag->form("role/addroles"); ?>
+    <p>
+        <label for="role">Add Role</label>
+        <?php echo $this->tag->textfield(["role", "class" => "form-control"]); ?>
+    </p>
+    <p>
+        <label for="comp">Components</label>
+        <select name="components" id="components">
+            <option value="Index Controller">Index Controller</option>
+            <option value="Product Controller">Product Controller</option>
+            <option value="Order Controller">Order Controller</option>
+            <option value="Setting Controller">Setting Controller</option>
+        </select>
+    </p>
+    <p>
+        <label for="component">Add Component</label>
+        <?php echo $this->tag->textfield(["component", "class" => "form-control"]); ?>
+    </p>
+    <p>
+        <label for="component">Add Action</label>
+        <?php echo $this->tag->textfield(["action", "class" => "form-control"]); ?>
+    </p>
+    <br>
+    <p>
+        <?php echo $this->tag->submitButton(["Add Role/Component", 'class' => 'btn btn-primary']); ?>
+    </p>
+
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- main section for Products  -->
+
+<body>
+    <?php
+    echo $this->tag->linkTo(['signup', $this->locale->_('Signup Here!'), 'class' => 'm-3 btn btn-primary']);
+    echo $this->tag->linkTo(['product', $this->locale->_('Add products Here!'), 'class' => 'm-3 btn btn-primary']);
+    echo $this->tag->linkTo(['order', $this->locale->_('Place Order Here!'), 'class' => 'm-3 btn btn-primary']);
+    echo $this->tag->linkTo(['setting', $this->locale->_('Apply Settings Here!'), 'class' => 'm-3 btn btn-primary']);
+    echo $this->tag->linkTo(['role', $this->locale->_('Add role Here!'), 'class' => 'm-3 btn btn-primary']);
+    echo $this->tag->linkTo(['addaction', $this->locale->_('Add action Here!'), 'class' => 'm-3 btn btn-primary']);
+    echo  $this->tag->linkTo(['product/view', $this->locale->_('View Products'), 'class' => 'm-3 btn btn-primary']);
+    echo  $this->tag->linkTo(['index', $this->locale->_('Homepage'), 'class' => 'm-3 btn btn-primary']);
+    ?>
+
+
+    <h2><?php echo $this->locale->_('Add products using this form') ?></h2>
+    <?php echo $this->tag->form("product/add"); ?>
+    <p>
+        <label for="name"><?php echo $this->locale->_('name') ?></label>
+        <?php echo $this->tag->textfield(["pname", "class" => "form-control"]); ?>
+    </p>
+    <p>
+        <label for="description"><?php echo $this->locale->_('description') ?></label>
+        <?php echo $this->tag->textfield(["pdescription", "class" => "form-control"]); ?>
+    </p>
+    <p>
+        <label for="tags"><?php echo $this->locale->_('tags') ?></label>
+        <?php echo $this->tag->textfield(["ptags", "class" => "form-control"]); ?>
+    </p>
+    <p>
+        <label for="price"><?php echo $this->locale->_('price') ?></label>
+        <?php echo $this->tag->textfield(["pprice", "class" => "form-control"]); ?>
+    </p>
+    <p>
+        <label for="stock"><?php echo $this->locale->_('stock') ?></label>
+        <?php echo $this->tag->textfield(["pstock", "class" => "form-control"]); ?>
+    </p>
+    <p>
+        <?php echo $this->tag->submitButton([$this->locale->_('add'), 'class' => 'btn btn-primary']); ?>
+    </p>
+    <p>
+
+        </form>
+</body>
+
+</html>

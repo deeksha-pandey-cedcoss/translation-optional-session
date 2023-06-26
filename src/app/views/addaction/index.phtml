@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>acl role</title>
+</head>
+<!-- main section for Orders  -->
+
+<body>
+    <h2>
+        Add permission
+    </h2>
+    <h2>Provide permission using this form</h2>
+    <?php echo $this->tag->form("addaction/addaction"); ?>
+    <p>
+        <label for="role">Roles</label>
+        <select name='roles' class='roles'>
+            <?php
+            $str = "";
+            foreach ($this->session->get('roles') as $key => $value) {
+                $str .= "<option value=" . $value . ">" . $value . "</option>";
+            }
+            echo $str;
+            ?>
+        </select>
+    </p>
+    <p>
+        <label for="component">Component</label>
+        <?php
+        echo "<select name='component' id='component'>";
+        foreach ($this->session->get('list') as $key => $value) {
+            echo "<option value=" . $value . "Controller >" . $value . "</option>";
+        }
+        echo "</select>";
+        ?>
+    </p>
+    <p>
+        <label for="action">Action</label>
+        <select name='action' id='actionn'>
+    </p>
+    <br>
+    <br>
+    <p>
+
+    </p>
+    <p>
+        <?php echo $this->tag->submitButton(["Assign Roles", 'class' => 'm-3 btn btn-primary submit']); ?>
+    </p>
+
+    </form>
+</body>
+
+</html>

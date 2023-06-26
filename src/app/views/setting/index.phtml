@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- main section for Orders  -->
+
+<body>
+    <?php
+
+    echo $this->tag->linkTo(['signup', $this->locale->_('Signup Here!'), 'class' => 'm-3 btn btn-primary']);
+    echo $this->tag->linkTo(['product', $this->locale->_('Add products Here!'), 'class' => 'm-3 btn btn-primary']);
+    echo $this->tag->linkTo(['order', $this->locale->_('Place Order Here!'), 'class' => 'm-3 btn btn-primary']);
+    echo $this->tag->linkTo(['setting', $this->locale->_('Apply Settings Here!'), 'class' => 'm-3 btn btn-primary']);
+    echo $this->tag->linkTo(['role', $this->locale->_('Add role Here!'), 'class' => 'm-3 btn btn-primary']);
+    echo $this->tag->linkTo(['addaction', $this->locale->_('Add action Here!'), 'class' => 'm-3 btn btn-primary']);
+    echo  $this->tag->linkTo(['product/view', $this->locale->_('View Products'), 'class' => 'm-3 btn btn-primary']);
+    echo  $this->tag->linkTo(['index', $this->locale->_('Homepage'), 'class' => 'm-3 btn btn-primary']);
+    echo  $this->tag->linkTo(['order/show', $this->locale->_('View Orders'), 'class' => 'btn btn-primary']);
+    ?>
+    <h2>
+        Add Settings using this form
+    </h2>
+    <h2>Settings using this form</h2>
+    <?php echo $this->tag->form("setting/add"); ?>
+    <p>
+        <label for="title">Title Optimisation</label>
+        <?php
+
+        echo Phalcon\Tag::select(
+            [
+                "title",
+                ["tag1" => "with Tag", "tag2" => "without Tag"], "class" => "form-control"
+            ]
+
+        ); ?>
+    </p>
+    <p>
+        <label for="def_price">Default Price</label>
+        <?php echo $this->tag->textfield(["price", "class" => "form-control"]); ?>
+    </p>
+    <p>
+        <label for="def-stock">Default Stock</label>
+        <?php echo $this->tag->numericField(["stock", "class" => "form-control"]); ?>
+
+    <p>
+        <label for="def-zipcode">Default Zipcode</label>
+        <?php echo $this->tag->numericField(["zipcode", "class" => "form-control"]); ?>
+    </p>
+    <p>
+        <?php echo $this->tag->submitButton(["Apply Settings", 'class' => 'btn btn-primary']); ?>
+    </p>
+
+    </form>
+</body>
+
+</html>

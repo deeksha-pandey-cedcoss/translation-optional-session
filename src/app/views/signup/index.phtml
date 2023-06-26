@@ -1,0 +1,68 @@
+<!-- sign up form -->
+<?php
+session_start();
+
+echo $this->tag->linkTo(['signup', $this->locale->_('Signup Here!'), 'class' => 'm-3 btn btn-primary']);
+echo $this->tag->linkTo(['product', $this->locale->_('Add products Here!'), 'class' => 'm-3 btn btn-primary']);
+echo $this->tag->linkTo(['order', $this->locale->_('Place Order Here!'), 'class' => 'm-3 btn btn-primary']);
+echo $this->tag->linkTo(['setting', $this->locale->_('Apply Settings Here!'), 'class' => 'm-3 btn btn-primary']);
+echo $this->tag->linkTo(['role', $this->locale->_('Add role Here!'), 'class' => 'm-3 btn btn-primary']);
+echo $this->tag->linkTo(['addaction', $this->locale->_('Add action Here!'), 'class' => 'm-3 btn btn-primary']);
+echo  $this->tag->linkTo(['product/view', $this->locale->_('View Products'), 'class' => 'm-3 btn btn-primary']);
+echo  $this->tag->linkTo(['index', $this->locale->_('Homepage'), 'class' => 'm-3 btn btn-primary']);
+echo  $this->tag->linkTo(['order/show', $this->locale->_('View Orders'), 'class' => 'btn btn-primary']);
+
+?>
+
+<?php
+if (isset($_POST['languages'])) {
+    $_SESSION['lang'] = $_POST['languages'];
+    header("Refresh:0");
+}
+
+?>
+<form method='POST' action="">
+    <label for='lang'>Choose a language :</label>
+    <select name='languages' onclick="this.form.submit()">
+        <?php if (isset($_SESSION['lang'])) {
+            echo "<option value=\"$_SESSION[lang]\">$_SESSION[lang]</option>";
+        } else {
+            echo "<option value=\"\" disabled selected>--select--</option>";
+        }
+        ?>
+        <option value='en-GB'>en-GB</option>
+        <option value='fr.php'>fr.php</option>
+    </select>
+</form>
+
+<h2>Sign up using this form</h2>
+<?php echo $this->tag->form("signup/register"); ?>
+
+<p>
+    <label for="name"><?php echo $this->locale->_('name') ?></label>
+    <?php echo $this->tag->textField([$this->locale->_('name'), "class" => "form-control"]); ?>
+</p>
+
+<p>
+    <label for="email"><?php echo $this->locale->_('email') ?></label>
+    <?php echo $this->tag->textField([$this->locale->_('password'), "class" => "form-control"]); ?>
+</p>
+<p>
+    <label for="email"><?php echo $this->locale->_('password') ?></label>
+    <?php echo $this->tag->textField([$this->locale->_('password'), "class" => "form-control"]); ?>
+</p>
+<p>
+    <label for="role"><?php echo $this->locale->_('choose a role') ?></label>
+
+    <select name="role" id="role" class="form-control">
+        <option value="admin"><?php echo $this->locale->_('admin') ?></option>
+        <option value="guest"><?php echo $this->locale->_('guest') ?></option>
+        <option value="manager"><?php echo $this->locale->_('manager') ?></option>
+    </select>
+</p>
+<p>
+    <?php echo $this->tag->submitButton($this->locale->_('register')); ?>
+
+</p>
+
+</form>

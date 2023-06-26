@@ -1,0 +1,21 @@
+<?php
+echo $this->tag->linkTo(['product', 'Add products Here!', 'class' => 'm-3 btn btn-primary']);
+echo $this->tag->linkTo(['order', 'Place Order Here!', 'class' => 'm-3 btn btn-primary']);
+echo $this->tag->linkTo(['setting', 'Apply Settings Here!', 'class' => 'm-3 btn btn-primary']);
+echo  $this->tag->linkTo(['index', 'Homepage', 'class' => 'm-3 btn btn-primary']);
+echo "<table class= table table-striped >
+         <thead>
+            <th>ID</th>
+             <th>NAME</th>
+             <th>DESCRIPTION</th>
+             <th>TAGS</th>
+             <th>PRICE</th>
+             <th>STOCK</th>
+         </thead>
+         <tbody>";
+foreach ($message as $key => $value) {
+    echo "<tr><td>" . $value['id'] . "</td><td>" . $value['name'] . "</td><td>" . $value['description'] .
+        "</td><td>" . $value['tags'] . "</td><td>" . $value['price'] . "</td><td>" . $value['stock'] . "</td></tr>";
+}
+echo "</tbody></table>";
+ 
