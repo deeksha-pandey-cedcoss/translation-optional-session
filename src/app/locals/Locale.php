@@ -16,7 +16,8 @@ class Locale extends Injectable
     {
         session_start();
 
-        $language = $_SESSION['lang'];
+        $language = $this->cookies->get("lang");
+
 
         $messages = [];
 
@@ -30,17 +31,7 @@ class Locale extends Injectable
 
         $interpolator = new InterpolatorFactory();
         $factory      = new TranslateFactory($interpolator);
-        $di = $this->getDI();
-
-        if ($di->get('cache')->has('key1')) {
-            if ($di->get('cache')->has('key2') == $language) {
-
-                $di->get('cache')->get('key1', $messages);
-            }
-        } else {
-            $di->get('cache')->set('key1', $messages);
-            $di->get('cache')->set('key2', $language);
-        }
+  
 
         return $factory->newInstance(
             'array',

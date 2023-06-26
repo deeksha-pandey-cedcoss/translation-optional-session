@@ -17,6 +17,7 @@ echo  $this->tag->linkTo(['order/show', $this->locale->_('View Orders'), 'class'
 <?php
 if (isset($_POST['languages'])) {
     $_SESSION['lang'] = $_POST['languages'];
+    $this->cookies->set('lang', $_POST['languages'], time() + 15 * 86400);
     header("Refresh:0");
 }
 

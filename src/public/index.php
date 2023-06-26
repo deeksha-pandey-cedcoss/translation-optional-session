@@ -13,6 +13,7 @@ use Phalcon\Session\Adapter\Stream;
 use MyApp\Locale;
 use Phalcon\Cache\Adapter\Stream as streamcache;
 use Phalcon\Storage\SerializerFactory;
+use Phalcon\Http\Response\Cookies;
 
 $config = new Config([]);
 
@@ -104,16 +105,26 @@ $container->set(
 );
 
 $container->set(
+    'cookies',
+    function () {
+        $cookies = new Cookies();
+
+        $cookies->useEncryption(false);
+
+        return $cookies;
+    }
+);
+
+$container->set(
     'cache',
     function () {
         $serializerFactory = new SerializerFactory();
         $options = [
             'defaultSerializer' => 'Json',
             'lifetime'          => 7200,
-            'storageDir'        => APP_PATH.'/data/storage/cache',
+            'storageDir'        => APP_PATH . '/data/storage/cache',
         ];
         return new streamcache($serializerFactory, $options);
-        
     }
 );
 
